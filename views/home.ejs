@@ -19,7 +19,7 @@
                <% if(data.length > 0) { %>
                     <% data.forEach(file => { %>
                          <div class="task w-56 min-h-20 bg-zinc-700 rounded-md text-white p-2 overflow-hidden">
-                              <h1 class="text-2xl tracking-tighter text-teal-500 uppercase"><%= file.split('.').slice(0,-1)%></h1>
+                              <h1 class="text-2xl tracking-tighter text-teal-500 capitalize"><%= file.split('.').slice(0,-1)%></h1>
                               <div class="flex pt-2 gap-5">
                                    <a class="text-blue-500 text-sm" href="./files/<%= file %>">Read more</a>
                                    <a class="text-red-500 text-sm " href="./<%= file %>">Delete</a>

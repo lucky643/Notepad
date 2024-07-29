@@ -27,7 +27,7 @@ app.get('/:file', (req, res) => {
 })
 
 app.post('/Created', (req, res) => {
-     fs.writeFile(`./files/${req.body.title.split(' ').join('')}.txt`, req.body.data, (err, data) => {
+     fs.writeFile(`./files/${req.body.title.split(' ').join('_')}.txt`, req.body.data, (err, data) => {
           res.redirect('/');
      })
 })
