@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Notepad</title>
+     <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+     <div class="main bg-zinc-900 w-full h-screen">
+          <div class="form">
+               <form class="p-12" action="/Created" method="post">
+                    <input class="block w-1/3 bg-zinc-700 text-white rounded-md mb-3 outline-none" type="text" placeholder="Title" name="title">
+                    <textarea class="block w-1/2 bg-zinc-700 text-white rounded-md mb-3 resize-none outline-none" placeholder="Write your information" name="data"></textarea>
+                    <input class="bg-blue-500 text-white rounded-md mb-3 p-1" type="submit" placeholder="Create Task" value="Create">
+               </form>
+          </div>
+          <div class="tasks p-12 flex flex-wrap gap-3">
+               <% if(data.length > 0) { %>
+                    <% data.forEach(file => { %>
+                         <div class="task w-56 min-h-20 bg-zinc-700 rounded-md text-white p-2 overflow-hidden">
+                              <h1 class="text-2xl tracking-tighter text-teal-500 uppercase"><%= file.split('.').slice(0,-1)%></h1>
+                              <div class="flex pt-2 gap-5">
+                                   <a class="text-blue-500 text-sm" href="./files/<%= file %>">Read more</a>
+                                   <a class="text-red-500 text-sm " href="./<%= file %>">Delete</a>
+                              </div>
+                         </div>
+                    <% }); %>
+               <% } else { %>
+                    <h3 class="text-zinc-500 ml-20">There is nothing yet</h3>
+               <% } %>
+          </div>
+     </div>
+</body>
+</html>
